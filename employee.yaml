@@ -1,0 +1,113 @@
+apiVersion: digital-employee/v1
+kind: DigitalEmployee
+metadata:
+  id: de_ecommerce_shortvideo_producer
+  name: 短视频/直播内容
+  alias: 内容编导·小导
+  repo: de-ecommerce-shortvideo-producer
+  card_no: 6.4-⑤
+  group: ecommerce
+  group_label: 电商商家
+  phase: P1 二期（抖店宝藏小店 GMV +165%，据R3调研）
+  complexity: S-M
+  score: 高频5｜痛点4｜客单价3｜广度4｜价值4 ＝ **20/25**
+  price: 30-80 元/月
+  channels:
+  - GitHub
+  - 抖音
+  - 快手
+  - 小红书（用 AI 脚本拍"AI 帮我写脚本"视频，自证式引流）
+  license: Proprietary
+  version: 1.0.0
+spec:
+  positioning: 内容编导·小导 ｜ 不替你拍视频，只解决"今天拍什么、开头 3 秒说什么、发完怎么复盘"
+  users: 周更 3 条以上内容的抖店/小红书卖家
+  boundary: 做：卖点提取、脚本、口播字幕、混剪指令、复盘归因；不做：代拍代剪成片、搬运伪原创
+  kpi: 周均脚本 ≥10 条；脚本采用率 ≥50%；发布后复盘覆盖率 100%
+  roi_summary: 月省选题写稿约 25h≈¥750 vs 月费 ≤¥80
+  demand_refs:
+  - D01
+  - D21
+  demand_support: 充分
+  demand_evidence: 中
+runtime:
+  system_prompt: persona/system-prompt.md
+  boundary: persona/boundary.md
+  kpi: persona/kpi.md
+deliverables:
+  skills:
+  - slug: mixcut-instruction-generator
+    name: 混剪指令生成
+    kind: private
+    path: skills/mixcut-instruction-generator
+    version: 1.0.0
+    maturity: contract-complete
+  - slug: sellingpoint-extract
+    name: 卖点提炼
+    kind: private
+    path: skills/sellingpoint-extract
+    version: 1.0.0
+    maturity: implemented
+  - slug: subtitle-copy
+    name: 字幕文案
+    kind: private
+    path: skills/subtitle-copy
+    version: 1.0.0
+    maturity: contract-complete
+  - slug: voiceover-script
+    name: 口播文案
+    kind: private
+    path: skills/voiceover-script
+    version: 1.0.0
+    maturity: contract-complete
+  workflows:
+  - slug: wf-ecom-video-sellingpoint
+    name: 商品卖点提取
+    path: workflows/wf-ecom-video-sellingpoint
+    version: 1.0.0
+    phase: P1
+    calls:
+    - sellingpoint-extract
+  - slug: wf-ecom-video-script
+    name: 短视频脚本生成
+    path: workflows/wf-ecom-video-script
+    version: 1.0.0
+    phase: P1
+    calls:
+    - script-structure
+    - hook-copy
+  - slug: wf-ecom-video-voiceover-subtitle
+    name: 口播文案+字幕
+    path: workflows/wf-ecom-video-voiceover-subtitle
+    version: 1.0.0
+    phase: P1
+    calls:
+    - voiceover-script
+    - subtitle-copy
+  - slug: wf-ecom-video-slice
+    name: 素材混剪指令包
+    path: workflows/wf-ecom-video-slice
+    version: 1.0.0
+    phase: P2
+    calls:
+    - mixcut-instruction-generator
+  - slug: wf-ecom-video-live-script
+    name: 发布排期+数据复盘
+    path: workflows/wf-ecom-video-live-script
+    version: 1.0.0
+    phase: P2
+    calls:
+    - attribution-analysis
+    - brief-generator
+  knowledge_base: kb/
+  connectors: connectors/bindings.yaml
+external_dependencies:
+- repo: agent-skills-core
+  version: 1.0.0
+  skills:
+  - attribution-analysis
+  - brief-generator
+  - hook-copy
+  - script-structure
+  resolution: external
+spec_only_dependencies: []

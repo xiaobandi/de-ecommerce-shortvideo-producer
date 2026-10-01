@@ -1,0 +1,36 @@
+{
+  "repo": "de-ecommerce-shortvideo-producer",
+  "kind": "employee",
+  "run_at": "2026-09-30T23:54:19+08:00",
+  "cases": 253,
+  "passed": 253,
+  "failed": 0,
+  "by_suite": {
+    "structure": {
+      "total": 68,
+      "failed": 0
+    },
+    "contract": {
+      "total": 29,
+      "failed": 0
+    },
+    "scenario": {
+      "total": 127,
+      "failed": 0
+    },
+    "script": {
+      "total": 8,
+      "failed": 0
+    },
+    "doc": {
+      "total": 3,
+      "failed": 0
+    },
+    "compliance": {
+      "total": 18,
+      "failed": 0
+    }
+  },
+  "skipped": [],
+  "failures": []
+}
