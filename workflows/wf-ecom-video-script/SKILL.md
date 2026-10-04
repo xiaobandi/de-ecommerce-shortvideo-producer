@@ -4,12 +4,19 @@ description: >-
   短视频/直播内容 的「短视频脚本生成」工作流：卖点+钩子库→分镜脚本。触发方式：人工。
   当用户要完成「短视频脚本生成」这件事、或触发了上述条件时使用。
 license: Proprietary
+compatibility: >-
+  需要能读取工作区文件；若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。
+  跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。
 metadata:
   author: PLATFORM
   version: "1.0.0"
   standard: agent-skills/v1
+  library: agent-skills-library
   layer: L2-workflow
   owner: de_ecommerce_shortvideo_producer
+  repo: de-ecommerce-shortvideo-producer
+  visibility: private_to_employee
+  delivery: employee
   complexity: S
   phase: P1
   source: library

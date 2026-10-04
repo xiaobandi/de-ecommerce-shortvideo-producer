@@ -4,12 +4,19 @@ description: >-
   短视频/直播内容 的「发布排期+数据复盘」工作流：发布数据→爆款归因→下周选题。触发方式：定时（每日/每周）。
   当用户要完成「发布排期+数据复盘」这件事、或触发了上述条件时使用。
 license: Proprietary
+compatibility: >-
+  需要能读取工作区文件；若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。
+  跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。
 metadata:
   author: PLATFORM
   version: "1.0.0"
   standard: agent-skills/v1
+  library: agent-skills-library
   layer: L2-workflow
   owner: de_ecommerce_shortvideo_producer
+  repo: de-ecommerce-shortvideo-producer
+  visibility: private_to_employee
+  delivery: employee
   complexity: M
   phase: P2
   source: library
