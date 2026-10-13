@@ -17,7 +17,7 @@ metadata:
   - 抖音
   - 快手
   - 小红书（用 AI 脚本拍"AI 帮我写脚本"视频，自证式引流）
-  license: Proprietary
+  license: Apache-2.0
   version: 1.0.0
 spec:
   positioning: 内容编导·小导 ｜ 不替你拍视频，只解决"今天拍什么、开头 3 秒说什么、发完怎么复盘"

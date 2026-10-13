@@ -2,7 +2,7 @@
 name: sellingpoint-extract
 description: >-
   从商品资料提炼结构化卖点（FAB），输出可直接喂给文案、视频、详情页的卖点卡。当用户提到卖点提炼、提炼卖点、商品卖点、卖点卡、selling point extraction、value props 时使用——即使用户没有直接说出上述关键词，只要意图吻合也应触发。
-license: Proprietary
+license: Apache-2.0
 compatibility: >-
   需要能读取工作区文件。若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。
 metadata:
